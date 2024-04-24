@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Application 1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            * {
+                text-align: center;
+            }
+            div {
+                font-size: 2em;
+            }
+            button {
+                font-size: large;
+                width: 40%;
+                height: 4em;
+            }
+            p {
+                margin: 10px auto;
+                width: 400px;
+                height: 400px;
+                border: solid #000;
+            }
+
+        </style>
+        <script type="text/javascript">
+            function sample() {
+                var canvas=document.getElementById('app1');
+                if(canvas.getContext) {
+                    var context = canvas.getContext('2d');
+                    context.fillStyle = "rgb(255,100,100)";
+                    context.fillRect(102,102,96,96);
+                    context.fillStyle = "rgb(100,255,100)";
+                    context.fillRect(202,102,96,96);
+                    context.fillStyle = "rgb(100,100,255)";
+                    context.fillRect(102,202,96,96);
+                    context.fillStyle = "rgb(255,255,100)";
+                    context.fillRect(202,202,96,96);
+                }
+            }
+        </script>
+    </head>
+    <body onload="sample()">
+        <div>Application 1</div>
+        <button type="button" onclick="location.replace('index.html');">Return</button>
+        <p>
+            <canvas width="400" height="400" id="app1"></canvas>
+        </p>      
+    </body>
+</html>
