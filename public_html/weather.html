@@ -4,27 +4,31 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html lang="en">
     <head>
-        <title>Application 3</title>
+        <title>Weather-App</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style type="text/css">
-            * {
-                text-align: center;
-            }
-            div {
-                font-size: 2em;
-            }
-            button {
-                font-size: large;
-                width: 40%;
-                height: 4em;
-            }
-        </style>
+        <link rel="stylesheet" href="css/weather.css">
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'> <!-- boxiconsを使うためのlink -->
+        
     </head>
     <body>
-        <div>Application 3</div>
-        <button type="button" onclick="location.replace('index.html');">Return</button>
+
+        <div class="container">
+            <div class="search-box">
+                <i class='bx bx-map'></i>
+                <input type="text" placeholder="enter your location">
+                <button class="bx bx-search"></button>
+            </div>
+            <div class="weather-box">
+                <div class="box">
+                    <div class="info-weather">
+                        <div class="weather"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="homebutton" type="button" onclick="location.replace('index.html');">Return</button>
     </body>
 </html>
