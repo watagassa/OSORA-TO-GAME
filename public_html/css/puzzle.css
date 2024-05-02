@@ -1,0 +1,52 @@
+/** ページ共通の設定 */
+.content {
+    text-align: center;
+    margin: 30px;
+}
+
+
+/** ページのタイトル表示 */
+.content__head {
+    margin-bottom: 20px;
+    font-size: 2.3em;
+}
+
+
+/** content__itemを入れる親*/
+.content__main {
+    /** content__frameを横並び・中央寄せにする */
+    display: flex;
+    justify-content: center;
+
+    /** ウィンドウの幅を縮めてもパズルの画像が崩れないように最低幅を指定 */
+    min-width: 980px;
+}
+
+/** 画像の説明とパズルの枠を入れる*/
+.content__item {
+    margin-right: 50px;
+    margin-bottom: 40px;
+    font-size: 1.8em;
+}
+
+/**　問題と正解の文言 */
+.content__description {
+    margin-bottom: 20px;
+}
+
+/**　画像を入れている枠 */
+.content__frame {
+    width: 410px;
+    height: 410px;
+    background-color: #010a38;
+    border: 10px solid #4d4d4d;
+    border-radius: 10px;
+
+}
+
+/* タイル画像の境界の線  */
+.tile__image {
+    width: 130px;
+    height: 130px;
+    border: 1px solid #adb5bd;
+}
