@@ -19,7 +19,7 @@ window.onload = () => {
         // blank画像を読み込む
         loadImage("https://raw.githubusercontent.com/sktaz/slide_pazzle_winter/main/image/blank_tile.png").then(blankTile => {
             // スライド用のタイル画像を生成する(引数: 390×390の正解画像, blank画像)
-            createSlidePuzzleImage(seikaiImage, blankTile)
+            createSlidePazzleImage(seikaiImage, blankTile)
         }).catch(e => {
             console.log('onload error', e);
         });
@@ -60,7 +60,7 @@ function drawSeiakImage(loadedImage) {
 
 
 /** スライド用のタイル画像を生成する(引数: 390×390の正解画像, blank画像) **/
-function createSlidePuzzleImage(seikaiImage, blankTile) {
+function createSlidePazzleImage(seikaiImage, blankTile) {
 
     // <canvas>要素を生成
     const canvas = document.createElement('canvas')
@@ -150,7 +150,7 @@ function createSlidePuzzleImage(seikaiImage, blankTile) {
                     tile.src = encodedImage;
                 }
 
-                // index.htmlファイルに定義したpuzzleのdivを取得し、生成したimg要素を描画する
+                // index.htmlファイルに定義したpazzleのdivを取得し、生成したimg要素を描画する
                 document.getElementById("puzzle").append(tile);
 
 
