@@ -4,27 +4,76 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html lang="en">
     <head>
-        <title>Application 3</title>
+        <title>Weather-App</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style type="text/css">
-            * {
-                text-align: center;
-            }
-            div {
-                font-size: 2em;
-            }
-            button {
-                font-size: large;
-                width: 40%;
-                height: 4em;
-            }
-        </style>
+        <link rel="stylesheet" href="css/weather.css"> <!--cssを指定  -->
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'> <!-- boxiconsを使うためのlink -->
+        
     </head>
+
     <body>
-        <div>Application 3</div>
-        <button type="button" onclick="location.replace('index.html');">Return</button>
+        <div class="container">
+            <div class="main">
+                <div class="search-box">
+                    <i class='bx bx-map'></i>
+                    <input type="text" placeholder="enter your location">
+                    <button class="bx bx-search"></button>
+                </div>
+
+                <p class="city-hide">city hide</p>
+
+
+
+                <div class="weather-box">
+                    <div class="box">
+                        <div class="info-weather">
+                            <div class="weather">
+                                <img src="images/cloud.png" >
+                                <p class="temperature">0<span>°C</span></p>
+                                <p class="description">Broken Clouds</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="weather-details">
+                    <div class="humidity">
+                        <i class='bx bx-water'></i>
+                        <div class="text">
+                            <div class="info-humidity">
+                                <span>0%</span>
+                            </div>
+                            <p>humidity</p>
+                        </div>
+                    </div>
+
+                    <div class="wind">
+                        <i class='bx bx-wind' ></i>
+                        <div class="text">
+                            <div class="info-wind">
+                                <span>0Km/h</span>
+                            </div>
+                            <p>Wind Speed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="not-found">
+                    <div class="box">
+                        <img src="images/404.png">
+                        <p>Oops! Location not found!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sub">
+
+            </div>
+        </div>
+
+        <button class="homebutton" type="button" onclick="location.replace('index.html');">Return</button>
+        <script src="js/weather.js"></script><!--jsを指定  -->
     </body>
-</html>
+<script>
