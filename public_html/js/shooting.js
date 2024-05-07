@@ -3,6 +3,7 @@ const bloodSpot = document.querySelector(".bloodSpot");
 const startBtn = document.querySelector(".startBtn");
 const cursor = document.querySelector(".cursor");
 const enemy = document.getElementById("enemy");
+
 const enemySize = parseInt(
   window.getComputedStyle(enemy).getPropertyValue("height")
 );
@@ -10,16 +11,22 @@ const contHeight = container.offsetHeight; //borderまでの大きさ
 const contWidth = container.offsetWidth; //borderまでの大きさ
 
 let score = 0;
-const winScore = 10;
+
 let displayTimer = document.getElementById("timer");
 let timer = 20;
-
+let high_score = localStorage.getItem("ShootingScore");
+console.log(high_score);
 function showTimer() {
   timer--;
   displayTimer.innerText = `残り時間: ${timer}`;
   if (timer === 0) {
-    alert("ゲームオーバー");
+    if (high_score <= score) {
+      localStorage.setItem("ShootingScore", score);
+      high_score = localStorage.getItem("ShootingScore");
+    }
+    alert("終了！");
     location.reload();
+    
   }
 }
 
@@ -34,10 +41,6 @@ window.addEventListener("click", (e) => {
 
   if (e.target === enemy) score++;
   startBtn.innerText = "SCORE: " + score;
-  if (score === winScore) {
-    alert("ゲームクリア");
-    location.reload();
-  }
 });
 
 startBtn.addEventListener("click", () => {
