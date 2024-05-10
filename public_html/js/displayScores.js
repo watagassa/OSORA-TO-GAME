@@ -11,7 +11,9 @@ shootingHighScore.textContent = "ShootingHighScore : "+ localStorage.getItem("Sh
 dispScores.appendChild(shootingHighScore);
 
 //puzzleのハイスコア表示
-//後で書く
+let puzzleHighScore = document.createElement("div");
+puzzleHighScore.textContent = "PuzzleHighScore : "+ localStorage.getItem("PuzzleScore");
+dispScores.appendChild(puzzleHighScore);
 
 //リセットボタン作成
 var resetButton = document.createElement('button');
@@ -23,5 +25,7 @@ resetButton.addEventListener("click", () => {
     console.log("Reset!");
     //リセットしたいものをここに書く
     localStorage.setItem("ShootingScore", 0);
+    localStorage.setItem("PuzzleScore", 0);
     shootingHighScore.textContent = "ShootingHighScore : "+ localStorage.getItem("ShootingScore");
+    shootingHighScore.textContent = "PuzzleHighScore : "+ localStorage.getItem("PuzzleScore");
   });
