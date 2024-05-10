@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+const info = document.querySelector(".info");
 const bloodSpot = document.querySelector(".bloodSpot");
 const startBtn = document.querySelector(".startBtn");
 const cursor = document.querySelector(".cursor");
@@ -7,11 +8,12 @@ const enemy = document.getElementById("enemy");
 const enemySize = parseInt(
   window.getComputedStyle(enemy).getPropertyValue("height")
 );
+console.log(info.offsetHeight);
 const contHeight = container.offsetHeight; //borderまでの大きさ
 const contWidth = container.offsetWidth; //borderまでの大きさ
 
 let score = 0;
-
+let playing = false;
 let displayTimer = document.getElementById("timer");
 let timer = 20;
 let high_score = localStorage.getItem("ShootingScore");
@@ -26,25 +28,30 @@ function showTimer() {
     }
     alert("終了！");
     location.reload();
-    
   }
 }
 
 window.addEventListener("mousemove", (e) => {
-  cursor.style.top = e.pageY + "px";
+  cursor.style.top = e.pageY - info.offsetHeight + "px";
   cursor.style.left = e.pageX + "px";
 });
 
 window.addEventListener("click", (e) => {
-  bloodSpot.style.top = e.pageY + "px";
+  bloodSpot.style.display = "block";
+  bloodSpot.style.top = e.pageY - info.offsetHeight + "px";
   bloodSpot.style.left = e.pageX + "px";
 
-  if (e.target === enemy) score++;
-  startBtn.innerText = "SCORE: " + score;
+  if (e.target === enemy) {
+    score++;
+  }
+  if (playing == true) {
+    startBtn.innerText = "SCORE: " + score;
+  }
 });
 
 startBtn.addEventListener("click", () => {
   startBtn.disabled = "true";
+  playing = true;
   enemy.style.display = "block";
 
   startBtn.innerText = "SCORE: " + score;

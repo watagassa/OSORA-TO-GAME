@@ -7,13 +7,15 @@
         <link rel="stylesheet" media="screen" href="css/shooting.css">
     </head>
     <body>
-
-        <div class="container">
-            <div id="shooting_high_score">"ShootingHighScore : 0</div>
+        <div class="info">
+            <div id = "display_scores"></div>
             <button type="button" onclick="location.replace('index.html');">Return</button>
             <button type="button" class="startBtn">START GAME</button>
-            <button type="button" onclick="myfunc()">初期化</button>
             <span id="timer">残り時間: 20</span>
+        </div>
+        <div class="container">
+
+
             <img src="img/gun_syoujun_scope.png" class="cursor">
             <img src="img/choju34_0014_1.png" class="bloodSpot">
             <img src="img/choju62_0018_2.png" id="enemy">
@@ -21,12 +23,6 @@
         <script src="js/shooting.js"></script>
 
                                 
-        <script>
-            document.getElementById("shooting_high_score").innerHTML = "ShootingHighScore : "+ localStorage.getItem("ShootingScore");
-            var myfunc = function () {
-                localStorage.setItem("ShootingScore", 0);
-                document.getElementById("shooting_high_score").innerHTML = "ShootingHighScore : "+ localStorage.getItem("ShootingScore");
-            }
-        </script>
+        <script src="js/displayScores.js"></script>
     </body>
 </html>
