@@ -12,7 +12,7 @@ body {
     justify-content: center;/* 横並びの要素を中央寄せで配置する指定 */
     align-items: center;/* 要素を上下の中央に配置 */
     min-height: 100vh;/* 要素の最小高さを設定。100vhはビューポートの高さ全体 */
-    background: url('../images/haikei.jpg');/* ..は親ディレクトリ */
+    background: url('../img_weather/haikei.jpg');/* ..は親ディレクトリ */
     background-size: cover;
     background-position: center;
     overflow: hidden;
