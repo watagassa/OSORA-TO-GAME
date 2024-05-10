@@ -282,7 +282,7 @@ const checkResult = () => {
         // 補足: もしgetElementsByClassName使用したい場合はgetElementsByClassNameの戻り値は配列なので要素の番号を指定すること
         // 例: getElementsByClassName('message--success')[0]innerText
         document.getElementById('success').innerText = `正解です！ ${sumCount}回で正解`
-
+        localStorage.setItem("PuzzleScore", sumCount);//PuzzleScoreという名前で保存
         list.map((item, index) => {
             if (item) {
                 item.removeEventListener('dragstart', dragStart)
