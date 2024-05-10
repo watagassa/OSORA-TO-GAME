@@ -50,31 +50,31 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
 
             switch (json.weather[0].main) { //上記で取得したjsonに含まれている天気情報によって天気アイコンを変更
                 case 'Clear':
-                    image.src = 'images/clear.png';
+                    image.src = 'img_weather/clear.png';
                     break;
     
                 case 'Rain':
-                    image.src = 'images/rain.png';
+                    image.src = 'img_weather/rain.png';
                     break;
                     
                 case 'Snow':
-                    image.src = 'images/snow.png';
+                    image.src = 'img_weather/snow.png';
                     break;
                     
                 case 'Clouds':
-                    image.src = 'images/cloud.png';
+                    image.src = 'img_weather/cloud.png';
                     break;
     
                 case 'Mist':
-                    image.src = 'images/mist.png';
+                    image.src = 'img_weather/mist.png';
                     break;
     
                 case 'Haze':
-                    image.src = 'images/mist.png';
+                    image.src = 'img_weather/mist.png';
                     break;
                     
                 default:
-                    image.src ='images/cloud.png';
+                    image.src ='img_weather/cloud.png';
             }
     
             //jsonに含まれた情報によってHTMLの表記を変更
