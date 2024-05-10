@@ -2,20 +2,27 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <title>アーロンを狙え！</title>
+        <title>shooting</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="stylesheet" media="screen" href="css/shooting.css">
     </head>
     <body>
-
-        <div class="container">
+        <div class="info">
+            <div id = "display_scores"></div>
             <button type="button" onclick="location.replace('index.html');">Return</button>
             <button type="button" class="startBtn">START GAME</button>
             <span id="timer">残り時間: 20</span>
-            <img src="img/gun_syoujun_scope.png" class="cursor">
-            <img src="img/choju34_0014_1.png" class="bloodSpot">
-            <img src="img/choju62_0018_2.png" id="enemy">
+        </div>
+        <div class="container">
+
+
+            <img src="img-shooting/gun_syoujun_scope.png" class="cursor">
+            <img src="img-shooting/choju34_0014_1.png" class="bloodSpot">
+            <img src="img-shooting/choju62_0018_2.png" id="enemy">
         </div>
         <script src="js/shooting.js"></script>
+
+                                
+        <script src="js/displayScores.js"></script>
     </body>
 </html>
