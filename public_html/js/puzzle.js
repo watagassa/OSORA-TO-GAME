@@ -175,7 +175,7 @@ let clickedTile
 let toTile
 
 /** ドラッグした回数 */
-let sumCount = 0
+let sumCount =0;
 
 
 /** dragStart時に呼び出す関数 */
@@ -292,7 +292,7 @@ const checkResult = () => {
                 item.removeEventListener('dragleave', dragLeave)
 
                 item.removeEventListener('drop', dragDrop)
-                item.removeEventListener('dragend', dragEnd)
+                item.removeEventListener('dragend', dragEnd)//正解後、ドラッグできないようにする
             }
         })
     } else {
