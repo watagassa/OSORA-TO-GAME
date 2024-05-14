@@ -13,7 +13,7 @@ function loadImage(src) {
 
 /** ページが読み込まれたら実行 */
 window.onload = () => {
-    loadImage("https://raw.githubusercontent.com/watagassa/Proj_I/blob/public_html/img-puzzle/public_html/img-puzzle/pet_tehe_dog.png").then(loadedImage => {
+    loadImage("https://raw.githubusercontent.com/watagassa/Proj_I/master/public_html/img-puzzle/pet_tehe_dog.png").then(loadedImage => {
         // 正解画像を390×390で描画する
         const seikaiImage = drawSeiakImage(loadedImage)
         // blank画像を読み込む
