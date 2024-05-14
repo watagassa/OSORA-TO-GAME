@@ -1,4 +1,4 @@
-let headerButtons = document.createElement("nav");
+let headerButtons = document.createElement("header");
 
 let ul = document.createElement("ul");
 // classを追加
