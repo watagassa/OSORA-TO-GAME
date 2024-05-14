@@ -14,6 +14,10 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
     if (city == '') //ユーザーが何も入力せずに検索ボタンをクリックした場合、処理を中断
         return; 
 
+
+
+    //fetch(`https://pro.openweathermap.org/data/2.5/forecast/hourly?id=${city}&appid=${APIKey}`)
+
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`) //fetch()によって指定されたURLにGETリクエストを送信し、OpenWeatherMap APIのURLにユーザーが入力した都市名 (city) とAPIキー (APIKey) を埋め込んでいる。
     .then(response => response.json()).then(json => { //.then() メソッドを使用して、サーバーからの応答を処理。最初の .then() メソッドは、HTTP応答をJSON形式に解析するもの。
         // .then() メソッドのチェーンを使って、JSON形式の天気情報を受け取った後の処理を指定。json データを引数として取り、天気情報を表示するためのコードが含まれている。
@@ -32,6 +36,11 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
         const description = document. querySelector('.weather-box .description');
         const humidity  = document. querySelector('.weather-details .humidity span');
         const wind = document. querySelector('.weather-details .wind span');
+
+        // ローカルストレージに天気情報を保管
+
+        localStorage.setItem("Weather" ,json.weather[0].main);
+        console.log(localStorage.getItem("Weather"));
 
         if (cityHide.textContent == city) {
             return;

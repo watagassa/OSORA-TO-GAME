@@ -265,7 +265,7 @@ body {
 
 .sub {
     position: relative;/* 要素の現在位置を基準に相対位置を指定する */
-    width: 400px;
+    width: 555px;
     height: 555px;
     background: rgba(225, 255, 255, .1);
     backdrop-filter: blur(30px);
@@ -274,4 +274,21 @@ body {
     padding: 20px;
     color: #fff;
     transition: height .6s ease;
+}
+
+.weather-hour {
+    position: relative;
+     
+
+
+}
+
+.weather-hour-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;/* 要素を上下の中央に配置 */
+}
+
+.weather-hour img {
+    width: 24%;
 }
