@@ -10,6 +10,11 @@ function loadImage(src) {
     });
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    var title = document.querySelector(".content__head h1");
+    title.classList.add("show");
+});//アニメーション追加
+
 
 /** ページが読み込まれたら実行 */
 window.onload = () => {
