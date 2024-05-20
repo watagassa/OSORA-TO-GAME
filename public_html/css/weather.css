@@ -91,24 +91,28 @@ body {
 
 .weather-box,
 .weather-details,
-.not-found {
+.not-found,
+.sub {
     overflow: hidden;
     visibility: hidden;
 }
 
 .weather-box.active,
 .weather-details.active,
-.not-found.active {
+.not-found.active,
+.sub.active {
     visibility: visible;
 }
 
 .weather-box .box,
-.not-found .box {
+.not-found .box
+.sub .box {
     transform: translateY(-100%);
 }
 
 .weather-box.active .box,
-.not-found.active .box {
+.not-found.active .box,
+.sub.active .box {
     transform: translateY(0%);
     transition: transform 1s ease;
     transition-delay: .6s;
@@ -265,7 +269,7 @@ body {
 
 .sub {
     position: relative;/* 要素の現在位置を基準に相対位置を指定する */
-    width: 555px;
+    width: 400px;
     height: 555px;
     background: rgba(225, 255, 255, .1);
     backdrop-filter: blur(30px);
@@ -274,7 +278,9 @@ body {
     padding: 20px;
     color: #fff;
     transition: height .6s ease;
+    overflow: scroll;
 }
+
 
 .weather-hour {
     position: relative;
@@ -284,9 +290,11 @@ body {
 }
 
 .weather-hour-info {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;/* 要素を上下の中央に配置 */
+    
 }
 
 .weather-hour img {

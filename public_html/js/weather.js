@@ -2,6 +2,7 @@ const main = document.querySelector('.main'); // HTML要素containerを取得
 const search = document.querySelector('.search-box button'); //HTML要素serch-box buttonを取得
 const weatherBox = document.querySelector('.weather-box'); //HTML要素weather-boxを取得
 const weatherDetails = document.querySelector('.weather-details'); //HTML要素weather-detailsを取得
+const sub = document.querySelector('.sub'); //HTML要素subを取得
 const error404 = document.querySelector('.not-found'); //HTML要素not-foundを取得
 const cityHide = document.querySelector('.city-hide'); //HTML要素city-hideを取得
 
@@ -17,7 +18,7 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
 
 
     //fetch(`https://pro.openweathermap.org/data/2.5/forecast/hourly?id=${city}&appid=${APIKey}`)
-
+    
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`) //fetch()によって指定されたURLにGETリクエストを送信し、OpenWeatherMap APIのURLにユーザーが入力した都市名 (city) とAPIキー (APIKey) を埋め込んでいる。
     .then(response => response.json()).then(json => { //.then() メソッドを使用して、サーバーからの応答を処理。最初の .then() メソッドは、HTTP応答をJSON形式に解析するもの。
         // .then() メソッドのチェーンを使って、JSON形式の天気情報を受け取った後の処理を指定。json データを引数として取り、天気情報を表示するためのコードが含まれている。
@@ -27,6 +28,7 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
             main.style.height = '400px';
             weatherBox.classList.remove('active');
             weatherDetails.classList.remove('active');
+            sub.classList.remove('active');
             error404.classList.add('active');
             return;
         }
@@ -51,6 +53,7 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
             main.classList.add('active');
             weatherBox.classList.add('active');
             weatherDetails.classList.add('active');
+            sub.classList.add('active');
             error404.classList.remove('active');
 
             setTimeout(() => {
@@ -138,9 +141,43 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
 
             }
         }
-
-
     });
 
-});
 
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${APIKey}`)
+        .then(response => response.json()).then(json => {
+        
+            const weatherHourInfoElements = document.querySelectorAll('.weather-hour-info');
+            weatherHourInfoElements.forEach((element, index) => {
+                    const weatherInfo = json.list[index];
+                    const weatherMain = weatherInfo.weather[0].main;
+                    const temperature = weatherInfo.main.temp;
+
+                    const img = element.querySelector('img');
+                    const tempElement = element.querySelector('.temperature');
+
+                    switch (weatherMain) {
+                        case 'Clear':
+                            img.src = 'img_weather/clear.png';
+                            break;
+                        case 'Rain':
+                            img.src = 'img_weather/rain.png';
+                            break;
+                        case 'Snow':
+                            img.src = 'img_weather/snow.png';
+                            break;
+                        case 'Clouds':
+                            img.src = 'img_weather/cloud.png';
+                            break;
+                        case 'Mist':
+                        case 'Haze':
+                            img.src = 'img_weather/mist.png';
+                            break;
+                        default:
+                            img.src = 'img_weather/cloud.png';
+                    }
+                    tempElement.innerHTML = `${temperature}<span>°C</span>`;
+            });
+        })
+        .catch(error => console.error('Error fetching the weather data:', error));
+});
