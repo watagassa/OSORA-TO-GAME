@@ -1,6 +1,6 @@
 const container = document.querySelector(".container");
 const info = document.querySelector(".info");
-const header = document.querySelector(".buttons");
+const header = document.querySelector(".header-7");
 const bloodSpot = document.querySelector(".bloodSpot");
 const startBtn = document.querySelector(".startBtn");
 const cursor = document.querySelector(".cursor");
