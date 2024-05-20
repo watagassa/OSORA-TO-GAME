@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 const info = document.querySelector(".info");
+const header = document.querySelector(".header-7");
 const bloodSpot = document.querySelector(".bloodSpot");
 const startBtn = document.querySelector(".startBtn");
 const cursor = document.querySelector(".cursor");
@@ -32,13 +33,14 @@ function showTimer() {
 }
 
 window.addEventListener("mousemove", (e) => {
-  cursor.style.top = e.pageY - info.offsetHeight + "px";
+  cursor.style.top = e.pageY - info.offsetHeight - header.offsetHeight + "px";
   cursor.style.left = e.pageX + "px";
 });
 
 window.addEventListener("click", (e) => {
   bloodSpot.style.display = "block";
-  bloodSpot.style.top = e.pageY - info.offsetHeight + "px";
+  bloodSpot.style.top =
+    e.pageY - info.offsetHeight - header.offsetHeight + "px";
   bloodSpot.style.left = e.pageX + "px";
 
   if (e.target === enemy) {
