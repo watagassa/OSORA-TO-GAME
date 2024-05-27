@@ -53,5 +53,8 @@ switch (weather) { //上記で取得したjsonに含まれている天気情報�
     default:
         weather_img.src ='img-shooting/choju23_0030_1.png';
 }
+
+
+
 weather_img.style.height = "100px";
 document.getElementById("logo-div").appendChild(weather_img);

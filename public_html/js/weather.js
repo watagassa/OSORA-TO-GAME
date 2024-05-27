@@ -3,14 +3,44 @@ const search = document.querySelector('.search-box button'); //HTML要素serch-b
 const weatherBox = document.querySelector('.weather-box'); //HTML要素weather-boxを取得
 const weatherDetails = document.querySelector('.weather-details'); //HTML要素weather-detailsを取得
 const sub = document.querySelector('.sub'); //HTML要素subを取得
+const sub2 = document.querySelector('.sub-2'); //HTML要素su-2を取得
 const error404 = document.querySelector('.not-found'); //HTML要素not-foundを取得
 const cityHide = document.querySelector('.city-hide'); //HTML要素city-hideを取得
+
+document.addEventListener('DOMContentLoaded', function() {
+    let jsonData = [];
+
+    // 外部のJSONファイルを取得
+    fetch('data/city.list.json')
+    .then(response => response.json())
+    .then(data => {
+        jsonData = data; // JSONデータを変数に格納
+        console.log(jsonData);//確認用
+    });
+
+    document.getElementById('location-input').addEventListener('input', function() {
+        let input = this.value.toLowerCase();  // 入力された文字を取得
+        let datalist = document.getElementById('list');
+        datalist.innerHTML = '';  // 以前の候補をクリア
+
+        // 入力に一致する都市をフィルタリングして候補として追加
+        jsonData.forEach(function(city) {
+            if (city.name.toLowerCase().includes(input)) {
+                let option = document.createElement('option');
+                option.value = city.name;
+                datalist.appendChild(option);
+            }
+        });
+    });
+});
+
 
 
 search.addEventListener('click', () => { //検索ボタンをクリックした時に処理
     
     const APIKey = '6beeca1697c0c1b265fa0d5b5075604a'; //openweatherAPIのAPIkey
     const city = document.querySelector('.search-box input').value; //検索の入力を取得
+
 
     if (city == '') //ユーザーが何も入力せずに検索ボタンをクリックした場合、処理を中断
         return; 
@@ -29,6 +59,7 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
             weatherBox.classList.remove('active');
             weatherDetails.classList.remove('active');
             sub.classList.remove('active');
+            sub2.classList.remove('active');
             error404.classList.add('active');
             return;
         }
@@ -43,6 +74,7 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
 
         localStorage.setItem("Weather" ,json.weather[0].main);
         console.log(localStorage.getItem("Weather"));
+        
 
         if (cityHide.textContent == city) {
             return;
@@ -54,6 +86,7 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
             weatherBox.classList.add('active');
             weatherDetails.classList.add('active');
             sub.classList.add('active');
+            sub2.classList.add('active');
             error404.classList.remove('active');
 
             setTimeout(() => {
@@ -88,6 +121,9 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
                 default:
                     image.src ='img_weather/cloud.png';
             }
+
+            const headWeather = document.querySelector('.weather-img');
+            headWeather.src = image.src;
     
             //jsonに含まれた情報によってHTMLの表記を変更
             temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
@@ -179,5 +215,7 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
                     tempElement.innerHTML = `${temperature}<span>°C</span>`;
             });
         })
-        .catch(error => console.error('Error fetching the weather data:', error));
+        .catch(error => console.error('Error fetching the weather data:', error
+    ));
+
 });
