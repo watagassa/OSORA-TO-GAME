@@ -6,9 +6,9 @@
 }
 
 body {
-    background-image: url("../img-shooting/choju23_0030_1.png");
+    /* background-image: url("../img-shooting/choju23_0030_1.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     height: 100%;
     text-align: center;
 }
