@@ -16,9 +16,25 @@ document.addEventListener("DOMContentLoaded", function() {
 });//アニメーション追加
 
 
+// 画像リストの定義
+const imageList = [
+    "https://raw.githubusercontent.com/watagassa/Proj_I/master/public_html/img-puzzle/dog1.jpg",
+    "https://raw.githubusercontent.com/watagassa/Proj_I/master/public_html/img-puzzle/dog2.jpg",
+    "https://raw.githubusercontent.com/watagassa/Proj_I/master/public_html/img-puzzle/dog3.jpg",
+    // 他の画像URLを追加
+];
+
+// ランダムに画像を選択する関数
+function getRandomImage() {
+    const randomIndex = Math.floor(Math.random() * imageList.length);
+    return imageList[randomIndex];
+}
+
+
 /** ページが読み込まれたら実行 */
 window.onload = () => {
-    loadImage("https://raw.githubusercontent.com/watagassa/Proj_I/master/public_html/img-puzzle/hakone.jpg").then(loadedImage => {
+    const selectedImage = getRandomImage(); // ランダムに画像を選択
+    loadImage(selectedImage).then(loadedImage => {
         // 正解画像を390×390で描画する
         const seikaiImage = drawSeiakImage(loadedImage)
         // blank画像を読み込む
