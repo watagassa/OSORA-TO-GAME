@@ -7,20 +7,43 @@
     font-family: "Poppins", sans-serif; 
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    background-size: 100%;
+    background-color: #fff;
+}
+
 body {
     display: flex; /* bodyの中にある要素のレイアウトを変更できるようになる */
     justify-content: center;/* 横並びの要素を中央寄せで配置する指定 */
     align-items: center;/* 要素を上下の中央に配置 */
-    min-height: 100vh;/* 要素の最小高さを設定。100vhはビューポートの高さ全体 */
+    min-height: 100%;/* 要素の最小高さを設定。100vhはビューポートの高さ全体 */
     background: url('../img_weather/haikei.jpg');/* ..は親ディレクトリ */
     background-size: cover;
     background-position: center;
     overflow: hidden;
+    flex-direction: column;
 }
 
 .container {
     display: flex;
     justify-self: center;
+    margin-top: 45px;
+}
+
+.sub-2 {
+    position: relative;/* 要素の現在位置を基準に相対位置を指定する */
+    width: 400px;
+    height: 555px;
+    background: rgba(225, 255, 255, .1);
+    backdrop-filter: blur(30px);
+    border: 2px solid rgba(225, 255, 255, .2);
+    border-radius: 16px;/* 角を丸く */
+    padding: 20px;
+    color: #fff;
+    transition: height .6s ease;
+    overflow: scroll;
 }
 
 .main {
@@ -37,7 +60,7 @@ body {
 }
 
 .search-box {
-    position: relative;
+    position: relative; 
     width: 100%;
     height: 55px;
     display: flex;
@@ -92,7 +115,8 @@ body {
 .weather-box,
 .weather-details,
 .not-found,
-.sub {
+.sub, 
+.sub-2 {
     overflow: hidden;
     visibility: hidden;
 }
@@ -100,19 +124,22 @@ body {
 .weather-box.active,
 .weather-details.active,
 .not-found.active,
-.sub.active {
+.sub.active,
+.sub-2.active {
     visibility: visible;
 }
 
 .weather-box .box,
-.not-found .box
-.sub .box {
+.not-found .box,
+.sub .box,
+.sub-2 .box {
     transform: translateY(-100%);
 }
 
 .weather-box.active .box,
 .not-found.active .box,
-.sub.active .box {
+.sub.active .box,
+.sub-2.active .box {
     transform: translateY(0%);
     transition: transform 1s ease;
     transition-delay: .6s;
