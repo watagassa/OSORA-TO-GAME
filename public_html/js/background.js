@@ -9,27 +9,27 @@ try{
    }
    switch (weather) { //上記で取得したjsonに含まれている天気情報によって天気アイコンを変更
        case 'Clear':
-           body.style.backgroundImage = 'url(img_weather/clear.png)';
+           body.style.backgroundImage = 'url(img-back/background_clear.jpg)';
            break;
    
        case 'Rain':
-           body.style.backgroundImage = 'url(img_weather/rain.png)';
+           body.style.backgroundImage = 'url(img-back/background_rain.png)';
            break;
            
        case 'Snow':
-           body.style.backgroundImage = 'url(img_weather/snow.png)';
+           body.style.backgroundImage = 'url(img-back/background_snow.jpg)';
            break;
            
        case 'Clouds':
-           body.style.backgroundImage = 'url(img_weather/cloud.png)';
+           body.style.backgroundImage = 'url(img-back/background_cloud.jpg)';
            break;
    
        case 'Mist':
-           body.style.backgroundImage = 'url(img_weather/mist.png)';
+           body.style.backgroundImage = 'url(img-back/background_cloud.jpg)';
            break;
    
        case 'Haze':
-           body.style.backgroundImage = 'url(img_weather/mist.png)';
+           body.style.backgroundImage = 'url(img-back/background_cloud.jpg)';
            break;
        case 'noImage':
            body.style.backgroundImage = 'url(img-shooting/choju23_0030_1.png)';
