@@ -65,11 +65,11 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
         }
 
         const image = document. querySelector('.weather-box img');
+        let body  = document.querySelector('body');
         const temperature = document. querySelector('.weather-box .temperature');
         const description = document. querySelector('.weather-box .description');
         const humidity  = document. querySelector('.weather-details .humidity span');
         const wind = document. querySelector('.weather-details .wind span');
-
         // ローカルストレージに天気情報を保管
 
         localStorage.setItem("Weather" ,json.weather[0].main);
@@ -88,7 +88,7 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
             sub.classList.add('active');
             sub2.classList.add('active');
             error404.classList.remove('active');
-
+        
             setTimeout(() => {
                 main.classList.remove('active');
             }, 2500);
@@ -96,30 +96,37 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
             switch (json.weather[0].main) { //上記で取得したjsonに含まれている天気情報によって天気アイコンを変更
                 case 'Clear':
                     image.src = 'img_weather/clear.png';
+                    body.style.backgroundImage = 'url(img-back/background_clear.jpg)';
                     break;
     
                 case 'Rain':
                     image.src = 'img_weather/rain.png';
+                    body.style.backgroundImage = 'url(img-back/background_rain.png)';
                     break;
                     
                 case 'Snow':
                     image.src = 'img_weather/snow.png';
+                    body.style.backgroundImage = 'url(img-back/background_snow.jpg)';
                     break;
                     
                 case 'Clouds':
                     image.src = 'img_weather/cloud.png';
+                    body.style.backgroundImage = 'url(img-back/background_cloud.jpg)';
                     break;
     
                 case 'Mist':
                     image.src = 'img_weather/mist.png';
+                    body.style.backgroundImage = 'url(img-back/background_cloud.jpg)';
                     break;
     
                 case 'Haze':
                     image.src = 'img_weather/mist.png';
+                    body.style.backgroundImage = 'url(img-back/background_cloud.jpg)';
                     break;
                     
                 default:
                     image.src ='img_weather/cloud.png';
+                    body.style.backgroundImage = 'url(img-back/background_clear.jpg)';
             }
 
             const headWeather = document.querySelector('.weather-img');
