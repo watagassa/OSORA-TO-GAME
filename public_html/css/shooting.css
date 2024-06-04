@@ -1,8 +1,9 @@
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* cursor: none; */
+    cursor: none;
 }
 
 body {
@@ -15,7 +16,7 @@ body {
 
 .container {
     position: relative;
-    height: 80vh;
+    height: 70vh;
     
 }
 button, #timer {

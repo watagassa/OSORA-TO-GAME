@@ -9,30 +9,27 @@ and open the template in the editor.
         <title>home</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style type="text/css">
-            * {
-
-                text-align: center;
-            }
-            div {
-
-                
-                font-size: 3em;
-            }
-            table {
-                width: 30%;
-            }
-            tr{
-                height: 6em;
-            }
-            button {
-                font-size: large;
-                width: 80%;
-                height: 4em;
-            }
-        </style>
+        <link rel="stylesheet"href="css/header.css">
     </head>
+    <header class="header-7">
+        <div class="box box-logo">
+            <div id="logo-div">
+                <div id="display_scores"></div>
+            </div>
+        </div>
+        <div class="sp-nav">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="box box-nav">
+            <ul class="inner-nav">
+                <li class="menu" onclick="location.replace('weather.html');">weather</li>
+                <li class="menu" onclick="location.replace('shooting.html');">shooting</li>
+                <li class="menu" onclick="location.replace('puzzle.html');">puzzle</li>
+            </ul>
+        </div>
+    </header>
     <body>
+
         <div>App Sample</div>
         <table>
             <tr><td><button type="button" onclick="location.replace('shooting.html');">Application 1</button></td></tr>
@@ -41,4 +38,6 @@ and open the template in the editor.
         </table>
 
     </body>
+    <script src="js/header.js"></script>
+    <script src="js/displayScores.js"></script>
 </html>
