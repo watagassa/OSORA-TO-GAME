@@ -7,7 +7,91 @@ const sub2 = document.querySelector('.sub-2'); //HTML要素su-2を取得
 const error404 = document.querySelector('.not-found'); //HTML要素not-foundを取得
 const cityHide = document.querySelector('.city-hide'); //HTML要素city-hideを取得
 
+    //ローカルストレージからスコアの取得
+    shootingHighScore = localStorage.getItem("ShootingScore");
+    puzzleHighScore = localStorage.getItem("PuzzleScore");
+
+    //nullの時の定義
+    if (shootingHighScore === null) {
+        shootingHighScore = 0;
+    } else {
+        shootingHighScore = parseInt(shootingHighScore); //整数に変換
+    }
+    
+    //nullの時の定義
+    if (puzzleHighScore === null) {
+        puzzleHighScore = 1000;
+    } else {
+        puzzleHighScore = parseInt(puzzleHighScore); //整数に変換
+    }
+
+    //判定変数の初期値
+    let judge1 = 0;
+    let judge2 = 0;
+
+    //シューティングスコアの判定
+    if (shootingHighScore >= 30) {
+        judge1 = 1;
+    } else if (shootingHighScore < 30 && shootingHighScore >= 25 ){
+        judge1 = 2;
+    }else if (shootingHighScore < 25 && shootingHighScore >= 20) {
+        judge1 = 3;
+    } else if (shootingHighScore < 20 && shootingHighScore >= 15) {
+        judge1 = 4;
+    } else if (shootingHighScore < 15 && shootingHighScore >= 10 ){
+        judge1 = 5;
+    }
+
+    //パズルスコアの判定
+   if (puzzleHighScore <= 12) {
+        judge2 = 1;
+    } else if (puzzleHighScore > 12 && puzzleHighScore <= 15) {
+        judge2 = 2;
+    } else if (puzzleHighScore > 15 && puzzleHighScore <= 20) {
+        judge2 = 3;
+    }
+
+    //シューティングのアチーブメント達成判定（背景色を変化）
+    switch (judge1) {
+        case 1:
+            document.getElementById("achievement8").style.backgroundColor = "rgba(255, 255, 0, 0.7)";
+            
+        case 2:
+            document.getElementById("achievement7").style.backgroundColor = "rgba(255, 255, 0, 0.7)";
+            
+        case 3:
+            document.getElementById("achievement6").style.backgroundColor = "rgba(255, 255, 0, 0.7)";
+            
+        case 4:
+            document.getElementById("achievement5").style.backgroundColor = "rgba(255, 255, 0, 0.7)";
+            
+        case 5:
+            document.getElementById("achievement4").style.backgroundColor = "rgba(255, 255, 0, 0.7)";
+            
+    }
+
+
+    //パズルのアチーブメント達成判定（背景色を変化）
+    switch (judge2) {
+        case 1:
+            document.getElementById("achievement1").style.backgroundColor = "rgba(255, 255, 0, 0.7)";
+            
+        case 2:
+            document.getElementById("achievement2").style.backgroundColor = "rgba(255, 255, 0, 0.7)";
+            
+        case 3:
+            document.getElementById("achievement3").style.backgroundColor = "rgba(255, 255, 0, 0.7)";
+            
+
+    }
+    //確認用
+    console.log(shootingHighScore);
+    console.log(puzzleHighScore);
+
+
+//検索候補機能
 document.addEventListener('DOMContentLoaded', function() {
+    //配列の初期化
     let jsonData = [];
 
     // 外部のJSONファイルを取得
@@ -43,7 +127,7 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
 
 
     if (city == '') //ユーザーが何も入力せずに検索ボタンをクリックした場合、処理を中断
-        return; 
+        return;
 
 
 
@@ -53,40 +137,41 @@ search.addEventListener('click', () => { //検索ボタンをクリックした�
     .then(response => response.json()).then(json => { //.then() メソッドを使用して、サーバーからの応答を処理。最初の .then() メソッドは、HTTP応答をJSON形式に解析するもの。
         // .then() メソッドのチェーンを使って、JSON形式の天気情報を受け取った後の処理を指定。json データを引数として取り、天気情報を表示するためのコードが含まれている。
         
+        //検索欄に正しい記述が無い場合または、検索候補が登録されていない場合のエラー画面表示＆レイアウト
         if (json.cod == '404') {
             cityHide.textContent = city;
             main.style.height = '400px';
             weatherBox.classList.remove('active');
             weatherDetails.classList.remove('active');
             sub.classList.remove('active');
-            sub2.classList.remove('active');
             error404.classList.add('active');
             return;
         }
 
+        //各HTML要素を取得
         const image = document. querySelector('.weather-box img');
         let body  = document.querySelector('body');
         const temperature = document. querySelector('.weather-box .temperature');
         const description = document. querySelector('.weather-box .description');
         const humidity  = document. querySelector('.weather-details .humidity span');
         const wind = document. querySelector('.weather-details .wind span');
-        // ローカルストレージに天気情報を保管
 
+        // ローカルストレージに天気情報を保管
         localStorage.setItem("Weather" ,json.weather[0].main);
+        // 確認用
         console.log(localStorage.getItem("Weather"));
         
 
         if (cityHide.textContent == city) {
             return;
         } else {
+            //前回入力された都市名と異なる場合に画面に天気情報を表示。
             cityHide.textContent = city;
-
             main.style.height = '555px';
             main.classList.add('active');
             weatherBox.classList.add('active');
             weatherDetails.classList.add('active');
             sub.classList.add('active');
-            sub2.classList.add('active');
             error404.classList.remove('active');
         
             setTimeout(() => {
