@@ -6,6 +6,7 @@ const startBtn = document.querySelector(".startBtn");
 const cursor = document.querySelector(".cursor");
 const enemy = document.getElementById("enemy");
 weather = localStorage.getItem("Weather");
+//画像を設定していないところを初期設定する
 switch (weather) { //上記で取得したjsonに含まれている天気情報によって天気アイコンを変更
 
   case 'Mist':
