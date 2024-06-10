@@ -5,6 +5,22 @@ const bloodSpot = document.querySelector(".bloodSpot");
 const startBtn = document.querySelector(".startBtn");
 const cursor = document.querySelector(".cursor");
 const enemy = document.getElementById("enemy");
+weather = localStorage.getItem("Weather");
+switch (weather) { //上記で取得したjsonに含まれている天気情報によって天気アイコンを変更
+
+  case 'Mist':
+      weather = "Clouds";
+      break;
+
+  case 'Haze':
+    weather = "Clouds";
+      break;
+  case 'noImage':
+    weather = "Clouds";
+      break;
+  default:
+}
+enemy.src = `img-shooting/${weather}_enemy.png`;
 
 const enemySize = parseInt(
   window.getComputedStyle(enemy).getPropertyValue("height")
