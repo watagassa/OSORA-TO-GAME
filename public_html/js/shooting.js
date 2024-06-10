@@ -11,12 +11,14 @@ switch (weather) { //上記で取得したjsonに含まれている天気情報�
   case 'Mist':
       weather = "Clouds";
       break;
-
   case 'Haze':
     weather = "Clouds";
       break;
   case 'noImage':
     weather = "Clouds";
+      break;
+  case null:
+    weather = "Clear";
       break;
   default:
 }
