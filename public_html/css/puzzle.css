@@ -61,6 +61,7 @@ button:hover {
 /**　問題と正解の文言 */
 .content__description {
     margin-bottom: 20px;
+    font-weight: bold; /* 太字にする（オプション） */
 }
 
 /**　画像を入れている枠 */
@@ -78,4 +79,9 @@ button:hover {
     width: 130px;
     height: 130px;
     border: 1px solid #b38d51;
+}
+
+span.label {
+    font-size: 2em; /* フォントサイズを大きく設定 */
+    font-weight: bold; /* 太字にする（オプション） */
 }
