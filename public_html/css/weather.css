@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;/* 要素のwidthとheightにpaddingやborderのサイズを含める */
-    font-family: "Poppins", sans-serif; 
+    font-family: "Poppins", sans-serif;
 }
 
 header {
@@ -43,6 +43,37 @@ body {
     color: #fff;
     transition: height .6s ease;
     overflow: scroll;
+    margin-right: 75px;
+}
+
+.achievements {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sub-2 h2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.achievement {
+    width: 158px;
+    height: 158px;
+    margin: 10px;
+    align-items: center;/* 要素を上下の中央に配置 */
+    border-radius: 16px;/* 角を丸く */
+    background: rgba(255, 255, 255, 0.5);
+    /* background: rgba(234, 237, 68, 0.5); */
+}
+
+.achievement i {
+    margin-left: 29px;
+    font-size: 100px;
+}
+
+.achievement p {
+    text-align: center;
 }
 
 .main {
@@ -59,7 +90,7 @@ body {
 }
 
 .search-box {
-    position: relative; 
+    position: relative;
     width: 100%;
     height: 55px;
     display: flex;
@@ -97,7 +128,7 @@ body {
     right: 0;
     width: 40px;
     height: 100%;
-    background: transparent; 
+    background: transparent;
     border: none;
     outline: none;
     font-size: 28px;
@@ -114,8 +145,7 @@ body {
 .weather-box,
 .weather-details,
 .not-found,
-.sub, 
-.sub-2 {
+.sub {
     overflow: hidden;
     visibility: hidden;
 }
@@ -123,22 +153,19 @@ body {
 .weather-box.active,
 .weather-details.active,
 .not-found.active,
-.sub.active,
-.sub-2.active {
+.sub.active {
     visibility: visible;
 }
 
 .weather-box .box,
 .not-found .box,
-.sub .box,
-.sub-2 .box {
+.sub .box {
     transform: translateY(-100%);
 }
 
 .weather-box.active .box,
 .not-found.active .box,
-.sub.active .box,
-.sub-2.active .box {
+.sub.active .box {
     transform: translateY(0%);
     transition: transform 1s ease;
     transition-delay: .6s;
@@ -307,12 +334,12 @@ body {
     overflow: scroll;
 }
 
+.weather-forcast {
+    text-align: center;
+}
 
 .weather-hour {
     position: relative;
-     
-
-
 }
 
 .weather-hour-info {
