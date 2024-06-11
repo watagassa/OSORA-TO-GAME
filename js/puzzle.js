@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // 画像リストの定義
 const imageList = [
-    "https://raw.githubusercontent.com/watagassa/Proj_I/master/public_html/img-puzzle/dog1.jpg",
-    "https://raw.githubusercontent.com/watagassa/Proj_I/master/public_html/img-puzzle/dog2.jpg",
-    "https://raw.githubusercontent.com/watagassa/Proj_I/master/public_html/img-puzzle/dog3.jpg",
+    "https://raw.githubusercontent.com/watagassa/Proj_I/master/img-puzzle/dog1.jpg",
+    "https://raw.githubusercontent.com/watagassa/Proj_I/master/img-puzzle/dog2.jpg",
+    "https://raw.githubusercontent.com/watagassa/Proj_I/master/img-puzzle/dog3.jpg",
     // 他の画像URLを追加
 ];
 
