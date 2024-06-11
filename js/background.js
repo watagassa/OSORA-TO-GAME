@@ -32,10 +32,10 @@ try{
            body.style.backgroundImage = 'url(img-back/background_cloud.jpg)';
            break;
        case 'noImage':
-           body.style.backgroundImage = 'url(img-shooting/choju23_0030_1.png)';
+           body.style.backgroundImage = 'url(img-back/background_default.jpg)';
            break;
        default:
-           body.style.backgroundImage ='url(img-shooting/choju23_0030_1.png)';
+           body.style.backgroundImage ='url(img-back/background_default.jpg)';
    }
 
 
