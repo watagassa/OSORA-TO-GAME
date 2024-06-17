@@ -85,3 +85,20 @@ span.label {
     font-size: 2em; /* フォントサイズを大きく設定 */
     font-weight: bold; /* 太字にする（オプション） */
 }
+
+#sumCount {
+    font-size: 2em; /* ここで数字の大きさを指定します。2emは2倍の大きさになります。 */
+    font-weight: bold; /* 数字を太字にします（オプション）。 */
+    color: #333; /* 文字色を設定します（オプション）。 */
+}
+
+#success {
+    font-size: 2em;
+    font-weight: bold; 
+    color: #000000;
+    text-align: center; 
+    text-shadow: -3px -3px 0 #ffffff,  
+                  3px -3px 0 #ffffff,
+                 -3px 3px 0 #ffffff,
+                  3px 3px 0 #ffffff;
+}
